@@ -106,5 +106,20 @@ describe('LinkedList', function() {
     ll.remove();
 
     expect(ll.size()).to.equal(2);
+  });
+
+  it('Should invoke callback on each node', function() {
+    let result = [];
+    ll.head = {
+      value: [1,2,3],
+      next: {
+        value: 5,
+        next: null
+      }
+    }
+
+    ll.forEach((val) => result.push(val));
+
+    expect(result).to.eql([[1,2,3], 5]);
   })
 });

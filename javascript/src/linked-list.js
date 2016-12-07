@@ -53,4 +53,14 @@ LinkedList.prototype.size = function() {
   return this.length;
 }
 
+LinkedList.prototype.forEach = function(cb) {
+  let currNode = this.head;
+  let index = 1;
+
+  for(var i = 1; currNode; i++) {
+    cb(currNode.value, index, currNode);
+    currNode = currNode.next;
+  }
+}
+
 module.exports = { LinkedList, Node };
