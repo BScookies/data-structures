@@ -136,7 +136,7 @@ LinkedList.prototype.hasCycle = function() {
   let hare = this.head.next;
   let tortoise = this.head;
 
-  while(hare) {
+  while(hare && hare.next) {
     if(hare === tortoise) {
       return true;
     }
