@@ -104,4 +104,16 @@ LinkedList.prototype.toArray = function() {
   }, []);
 }
 
+// Node references will be different
+LinkedList.prototype.reverse = function() {
+  const tmpStack = this.toArray();
+  const reversed = new LinkedList;
+
+  while(tmpStack.length) {
+    reversed.add(tmpStack.pop());
+  }
+
+  return reversed;
+}
+
 module.exports = { LinkedList, Node };

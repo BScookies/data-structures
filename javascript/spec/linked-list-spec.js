@@ -185,5 +185,22 @@ describe('LinkedList', function() {
     };
 
     expect(ll.toArray()).to.eql(['hello', [133, true]]);
+  });
+
+  it('Should reverse the list', function() {
+    ll.head = {
+      value: 4,
+      next: {
+        value: 5,
+        next: null
+      }
+    };
+
+    let reversed = ll.reverse();
+
+    expect(reversed.head.value).to.equal(5);
+    expect(reversed.tail.value).to.equal(4);
+    expect(ll.head.value).to.equal(4);
+    expect(ll.head.next.value).to.equal(5);
   })
 });
