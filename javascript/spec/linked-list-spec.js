@@ -138,4 +138,19 @@ describe('LinkedList', function() {
 
     expect(JSON.stringify(filtered)).to.eql(JSON.stringify({ head: target, tail: target, length: 1 }));
   });
+
+  it('Should map each node', function() {
+    ll.head = {
+      value: 4,
+      next: {
+        value: 5,
+        next: null
+      }
+    }
+
+    let mapped = ll.map(val => val * val);
+
+    expect(mapped.head.value).to.equal(16);
+    expect(mapped.tail.value).to.equal(25);
+  });
 });

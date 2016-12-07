@@ -75,4 +75,14 @@ LinkedList.prototype.filter = function(predicate) {
   return filtered;
 }
 
+LinkedList.prototype.map = function(cb) {
+  const mapped = new LinkedList;
+
+  this.forEach((val, i, node) => {
+    mapped.add(cb(val, i, node));
+  })
+
+  return mapped;
+}
+
 module.exports = { LinkedList, Node };
