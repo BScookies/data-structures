@@ -28,3 +28,20 @@ describe('Node', function() {
     expect(node.next).to.equal(null);
   });
 });
+
+describe('LinkedList', function() {
+  let ll = new LinkedList;
+
+  it('Should create a linked list', function() {
+    expect(ll).to.not.be.undefined;
+  });
+
+  it('Should have a head and tail', function() {
+    expect(ll.head).to.not.be.undefined;
+    expect(ll.head).to.not.be.undefined;
+  });
+
+  it('Should have a working toString method', function() {
+    expect(ll.toString()).to.equal('');
+  });
+})

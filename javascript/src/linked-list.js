@@ -10,4 +10,16 @@ const LinkedList = function() {
   this.tail = null;
 }
 
+LinkedList.prototype.toString = function() {
+  let currNode = this.head;
+  let str = '';
+
+  while(currNode) {
+    str += `{ ${currNode.value} }`
+    currNode = currNode.next;
+  }
+
+  return str;
+}
+
 module.exports = { LinkedList, Node };
