@@ -92,5 +92,19 @@ describe('LinkedList', function() {
 
     expect(ll.remove().value).to.eql([1,2,3]);
     expect(ll.head.value).to.equal(5);
+  });
+
+  it('Should return size of the list', function() {
+    expect(ll.size()).to.equal(0);
+
+    ll.add(5);
+    ll.add(3);
+    ll.add('Guy Fieri');
+
+    expect(ll.size()).to.equal(3);
+
+    ll.remove();
+
+    expect(ll.size()).to.equal(2);
   })
 });

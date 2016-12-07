@@ -8,6 +8,7 @@ const Node = function(value, next) {
 const LinkedList = function() {
   this.head = null;
   this.tail = null;
+  this.length = 0;
 }
 
 LinkedList.prototype.toString = function() {
@@ -31,6 +32,8 @@ LinkedList.prototype.add = function(value) {
     this.tail = this.tail.next = newNode;
   }
 
+  this.length++;
+
   return newNode;
 }
 
@@ -41,7 +44,13 @@ LinkedList.prototype.remove = function() {
     this.head = oldHead.next;
   }
 
+  this.length--;
+
   return oldHead;
+}
+
+LinkedList.prototype.size = function() {
+  return this.length;
 }
 
 module.exports = { LinkedList, Node };
