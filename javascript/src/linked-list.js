@@ -116,4 +116,20 @@ LinkedList.prototype.reverse = function() {
   return reversed;
 }
 
+LinkedList.prototype.reverseInPlace = function() {
+  let currNode = this.head;
+  let lastNode = null;
+
+  while(currNode) {
+    let nextNode = currNode.next;
+    currNode.next = lastNode;
+    lastNode = currNode;
+    currNode = nextNode;
+  }
+
+  let oldHead = this.head;
+  this.head = this.tail;
+  this.tail = oldHead;
+}
+
 module.exports = { LinkedList, Node };

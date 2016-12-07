@@ -202,5 +202,23 @@ describe('LinkedList', function() {
     expect(reversed.tail.value).to.equal(4);
     expect(ll.head.value).to.equal(4);
     expect(ll.head.next.value).to.equal(5);
+  });
+
+  it('Should reverse the list in place', function() {
+    let tail = ll.tail = {
+      value: 5,
+      next: null
+    }
+
+    let head = ll.head = {
+      value: 4,
+      next: tail
+    };
+
+    ll.length = 2;
+
+    ll.reverseInPlace();
+
+    expect(JSON.stringify(ll)).to.eql(JSON.stringify({ head: tail, tail: head, length: 2 }));
   })
 });
