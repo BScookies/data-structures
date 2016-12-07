@@ -22,4 +22,16 @@ LinkedList.prototype.toString = function() {
   return str;
 }
 
+LinkedList.prototype.add = function(value) {
+  const newNode = new Node(value);
+
+  if(!this.head) {
+    this.head = this.tail = newNode;
+  } else {
+    this.tail = this.tail.next = newNode;
+  }
+
+  return newNode;
+}
+
 module.exports = { LinkedList, Node };

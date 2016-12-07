@@ -42,6 +42,41 @@ describe('LinkedList', function() {
   });
 
   it('Should have a working toString method', function() {
-    expect(ll.toString()).to.equal('');
+    let tmpList = new LinkedList;
+
+
+    expect(tmpList.toString()).to.equal('');
+
+    tmpList.head = {
+      value: 10,
+      next: {
+        value: 'hi',
+        next: null
+      }
+    }
+
+    expect(tmpList.toString()).to.equal('{ 10 }{ hi }');
   });
-})
+
+  it('Should add nodes', function() {
+    ll.add(5);
+    ll.add('hello');
+    ll.add(true)
+
+    let expectedTail = {
+      value: true,
+      next: null
+    }
+
+    let expectedHead = {
+      value: 5,
+      next: {
+        value: 'hello',
+        next: expectedTail
+      }
+    }
+
+    expect(ll.head).to.eql(expectedHead);
+    expect(ll.tail).to.eql(expectedTail);
+  })
+});
