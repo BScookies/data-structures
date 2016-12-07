@@ -34,4 +34,14 @@ LinkedList.prototype.add = function(value) {
   return newNode;
 }
 
+LinkedList.prototype.remove = function() {
+  let oldHead = this.head;
+
+  if(oldHead) {
+    this.head = oldHead.next;
+  }
+
+  return oldHead;
+}
+
 module.exports = { LinkedList, Node };

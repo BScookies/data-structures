@@ -30,7 +30,11 @@ describe('Node', function() {
 });
 
 describe('LinkedList', function() {
-  let ll = new LinkedList;
+  let ll;
+
+  beforeEach(function() {
+    ll = new LinkedList;
+  })
 
   it('Should create a linked list', function() {
     expect(ll).to.not.be.undefined;
@@ -42,12 +46,9 @@ describe('LinkedList', function() {
   });
 
   it('Should have a working toString method', function() {
-    let tmpList = new LinkedList;
+    expect(ll.toString()).to.equal('');
 
-
-    expect(tmpList.toString()).to.equal('');
-
-    tmpList.head = {
+    ll.head = {
       value: 10,
       next: {
         value: 'hi',
@@ -55,7 +56,7 @@ describe('LinkedList', function() {
       }
     }
 
-    expect(tmpList.toString()).to.equal('{ 10 }{ hi }');
+    expect(ll.toString()).to.equal('{ 10 }{ hi }');
   });
 
   it('Should add nodes', function() {
@@ -78,5 +79,18 @@ describe('LinkedList', function() {
 
     expect(ll.head).to.eql(expectedHead);
     expect(ll.tail).to.eql(expectedTail);
+  });
+
+  it('Should remove nodes', function() {
+    ll.head = {
+      value: [1,2,3],
+      next: {
+        value: 5,
+        next: null
+      }
+    }
+
+    expect(ll.remove().value).to.eql([1,2,3]);
+    expect(ll.head.value).to.equal(5);
   })
 });
