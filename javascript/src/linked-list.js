@@ -132,4 +132,20 @@ LinkedList.prototype.reverseInPlace = function() {
   this.tail = oldHead;
 }
 
+LinkedList.prototype.hasCycle = function() {
+  let hare = this.head.next;
+  let tortoise = this.head;
+
+  while(hare) {
+    if(hare === tortoise) {
+      return true;
+    }
+
+    hare = hare.next.next;
+    tortoise = tortoise.next;
+  }
+
+  return false;
+}
+
 module.exports = { LinkedList, Node };

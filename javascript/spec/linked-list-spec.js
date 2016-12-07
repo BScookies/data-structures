@@ -220,5 +220,17 @@ describe('LinkedList', function() {
     ll.reverseInPlace();
 
     expect(JSON.stringify(ll)).to.eql(JSON.stringify({ head: tail, tail: head, length: 2 }));
+  });
+
+  it('Should detect cycles', function() {
+    const first = ll.add(4);
+    ll.add(3);
+    ll.add('woooh');
+
+    expect(ll.hasCycle()).to.equal(false);
+
+    ll.tail.next = first;
+
+    expect(ll.hasCycle()).to.equal(true);
   })
 });
