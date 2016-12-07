@@ -63,4 +63,16 @@ LinkedList.prototype.forEach = function(cb) {
   }
 }
 
+LinkedList.prototype.filter = function(predicate) {
+  const filtered = new LinkedList;
+
+  this.forEach((val, i, node) => {
+    if(predicate(val, i, node)) {
+      filtered.add(val);
+    }
+  });
+
+  return filtered;
+}
+
 module.exports = { LinkedList, Node };

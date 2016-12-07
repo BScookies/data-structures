@@ -121,5 +121,21 @@ describe('LinkedList', function() {
     ll.forEach((val) => result.push(val));
 
     expect(result).to.eql([[1,2,3], 5]);
-  })
+  });
+
+  it('Should filter a list based on a predicate', function() {
+    let target = {
+      value: 5,
+      next: null
+    };
+
+    ll.head = {
+      value: [1,2,3],
+      next: target
+    }
+
+    let filtered = ll.filter((val) => typeof val === 'number');
+
+    expect(JSON.stringify(filtered)).to.eql(JSON.stringify({ head: target, tail: target, length: 1 }));
+  });
 });
