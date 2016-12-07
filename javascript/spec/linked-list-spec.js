@@ -173,5 +173,17 @@ describe('LinkedList', function() {
     expect(reduced).to.equal(9);
     expect(reducedStart).to.equal(14);
     expect(reducedArr).to.eql([4,5]);
+  });
+
+  it('Should convert list to an array', function() {
+    ll.head = {
+      value: 'hello',
+      next: {
+        value: [133, true],
+        next: null
+      }
+    };
+
+    expect(ll.toArray()).to.eql(['hello', [133, true]]);
   })
 });

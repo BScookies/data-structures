@@ -97,4 +97,11 @@ LinkedList.prototype.reduce = function(cb, startVal) {
   return startVal;
 }
 
+LinkedList.prototype.toArray = function() {
+  return this.reduce((arr, val) => {
+    arr.push(val);
+    return arr;
+  }, []);
+}
+
 module.exports = { LinkedList, Node };
