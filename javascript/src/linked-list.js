@@ -85,4 +85,16 @@ LinkedList.prototype.map = function(cb) {
   return mapped;
 }
 
+LinkedList.prototype.reduce = function(cb, startVal) {
+  this.forEach((val, i, node) => {
+    if(i === 1 && !startVal) {
+      startVal = val;
+    } else {
+      startVal = cb(startVal, val, i, node);
+    }
+  });
+
+  return startVal;
+}
+
 module.exports = { LinkedList, Node };

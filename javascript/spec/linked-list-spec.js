@@ -153,4 +153,25 @@ describe('LinkedList', function() {
     expect(mapped.head.value).to.equal(16);
     expect(mapped.tail.value).to.equal(25);
   });
+
+  it('Should reduce nodes', function() {
+    ll.head = {
+      value: 4,
+      next: {
+        value: 5,
+        next: null
+      }
+    }
+    let cb = (sum, val) => sum + val
+    let reduced = ll.reduce(cb);
+    let reducedStart = ll.reduce(cb, 5);
+    let reducedArr = ll.reduce((arr, val) => {
+      arr.push(val);
+      return arr;
+    }, []);
+
+    expect(reduced).to.equal(9);
+    expect(reducedStart).to.equal(14);
+    expect(reducedArr).to.eql([4,5]);
+  })
 });
