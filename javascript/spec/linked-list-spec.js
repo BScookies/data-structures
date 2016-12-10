@@ -104,6 +104,23 @@ describe('LinkedList', function() {
     expect(ll.head.value).to.equal(5);
   });
 
+  it('Should remove nodes from the back', function() {
+    ll.add(5);
+    ll.add(9);
+    ll.add(10);
+    ll.removeBack();
+    expect(ll.head.value).to.equal(5);
+    expect(ll.tail.value).to.equal(9);
+
+    ll.removeBack();
+    expect(ll.head.value).to.equal(5);
+    expect(ll.tail.value).to.equal(5);
+
+    ll.removeBack();
+    expect(ll.head).to.equal(null);
+    expect(ll.tail).to.equal(null);
+  })
+
   it('Should return size of the list', function() {
     expect(ll.size()).to.equal(0);
 

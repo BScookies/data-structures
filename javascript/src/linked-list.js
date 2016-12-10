@@ -61,6 +61,24 @@ LinkedList.prototype.remove = function() {
   return oldHead;
 }
 
+LinkedList.prototype.removeBack = function() {
+  let tail = this.tail;
+  let currNode = this.head;
+
+  if(tail !== currNode) {
+    while(currNode && currNode.next !== tail) {
+      currNode = currNode.next;
+    }
+
+    this.tail = currNode;
+    this.tail.next = null;
+  } else {
+    this.tail = this.head = null;
+  }
+
+  return tail;
+}
+
 LinkedList.prototype.size = function() {
   return this.length;
 }
