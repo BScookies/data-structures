@@ -81,6 +81,16 @@ describe('LinkedList', function() {
     expect(ll.tail).to.eql(expectedTail);
   });
 
+  it('Should add nodes to front', function() {
+    ll.addToFront(4);
+    expect(ll.head.value).to.equal(4);
+    expect(ll.tail.value).to.equal(4);
+
+    ll.addToFront(10);
+    expect(ll.head.value).to.equal(10);
+    expect(ll.tail.value).to.equal(4);
+  })
+
   it('Should remove nodes', function() {
     ll.head = {
       value: [1,2,3],

@@ -37,6 +37,18 @@ LinkedList.prototype.add = function(value) {
   return newNode;
 }
 
+LinkedList.prototype.addToFront = function(value) {
+  const newNode = new Node(value);
+
+  if(this.head) {
+    newNode.next = this.head;
+  } else {
+    this.tail = newNode;
+  }
+
+  this.head = newNode;
+}
+
 LinkedList.prototype.remove = function() {
   let oldHead = this.head;
 
