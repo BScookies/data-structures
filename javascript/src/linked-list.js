@@ -103,6 +103,20 @@ LinkedList.prototype.removeBack = function() {
   return tail;
 }
 
+LinkedList.prototype.erase = function(index) {
+  let erased = null;
+
+  this.forEach((val, i, node) => {
+    if(i + 1 === index) {
+      erased = node.next.value;
+      node.next = node.next.next;
+      this.length--;
+    }
+  })
+
+  return erased;
+}
+
 LinkedList.prototype.valueAt = function(index) {
   let i = 1;
   let currNode = this.head;

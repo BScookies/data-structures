@@ -145,6 +145,31 @@ describe('LinkedList', function() {
     expect(ll.tail).to.equal(null);
   });
 
+  it('Should erase node at a given index', function() {
+    const tail = {
+      value: 3,
+      next: null
+    }
+
+    ll.head = {
+      value: 4,
+      next: {
+        value: 5,
+        next: tail
+      }
+    }
+    ll.tail = tail;
+    ll.length = 3;
+
+    const expectedHead = {
+      value: 4,
+      next: tail
+    }
+
+    expect(ll.erase(2)).to.equal(5);
+    expect(JSON.stringify(ll)).to.equal(JSON.stringify({ head: expectedHead, tail: tail, length: 2}));
+  })
+
   it('Should retrieve a value at a given index', function() {
     ll.head = {
       value: 4,
