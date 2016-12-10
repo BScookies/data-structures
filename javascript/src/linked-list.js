@@ -103,6 +103,14 @@ LinkedList.prototype.empty = function() {
   return this.head === null;
 }
 
+LinkedList.prototype.front = function() {
+  return this.head ? this.head.value : null;
+}
+
+LinkedList.prototype.back = function() {
+  return this.tail ? this.tail.value : null;
+}
+
 LinkedList.prototype.forEach = function(cb) {
   let currNode = this.head;
   let index = 1;

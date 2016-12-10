@@ -161,6 +161,31 @@ describe('LinkedList', function() {
     expect(ll.empty()).to.equal(false);
   });
 
+  it('Should return the head', function() {
+    expect(ll.front()).to.equal(null);
+
+    ll.head = {
+      value: 4,
+      next: {
+        value: 5,
+        next: null
+      }
+    }
+
+    expect(ll.front()).to.equal(4);
+  });
+
+  it('Should return the tail', function() {
+    expect(ll.back()).to.equal(null);
+
+    ll.tail = {
+      value: 4,
+      next: null
+    }
+
+    expect(ll.back()).to.equal(4);
+  });
+
   it('Should invoke callback on each node', function() {
     let result = [];
     ll.head = {
