@@ -359,5 +359,23 @@ describe('LinkedList', function() {
     ll.tail.next = first;
 
     expect(ll.hasCycle()).to.equal(true);
+  });
+
+  it('Should return values n distance from end of list', function() {
+    ll.head = {
+      value: 4,
+      next: {
+        value: 5,
+        next: {
+          value: 3,
+          next: null
+        }
+      }
+    }
+    ll.length = 3;
+
+    expect(ll.valueNFromEnd(2)).to.equal(4);
+    expect(ll.valueNFromEnd(1)).to.equal(5);
+    expect(ll.valueNFromEnd(0)).to.equal(3);
   })
 });

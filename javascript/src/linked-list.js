@@ -243,4 +243,16 @@ LinkedList.prototype.hasCycle = function() {
   return false;
 }
 
+LinkedList.prototype.valueNFromEnd = function(dist) {
+  let result;
+
+  this.forEach((val, i) => {
+    if(i === this.size() - dist) {
+      result = val;
+    }
+  });
+
+  return result;
+}
+
 module.exports = { LinkedList, Node };
