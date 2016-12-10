@@ -79,6 +79,22 @@ LinkedList.prototype.removeBack = function() {
   return tail;
 }
 
+LinkedList.prototype.valueAt = function(index) {
+  let i = 1;
+  let currNode = this.head;
+
+  while(currNode) {
+    if(index === i) {
+      return currNode.value;
+    }
+
+    i++;
+    currNode = currNode.next;
+  }
+
+  return null;
+}
+
 LinkedList.prototype.size = function() {
   return this.length;
 }

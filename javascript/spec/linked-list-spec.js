@@ -119,7 +119,20 @@ describe('LinkedList', function() {
     ll.removeBack();
     expect(ll.head).to.equal(null);
     expect(ll.tail).to.equal(null);
-  })
+  });
+
+  it('Should retrieve a value at a given index', function() {
+    ll.head = {
+      value: 4,
+      next: {
+        value: 5,
+        next: null
+      }
+    }
+
+    expect(ll.valueAt(2)).to.equal(5);
+    expect(ll.valueAt(3)).to.equal(null);
+  });
 
   it('Should return size of the list', function() {
     expect(ll.size()).to.equal(0);
