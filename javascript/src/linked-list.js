@@ -99,6 +99,10 @@ LinkedList.prototype.size = function() {
   return this.length;
 }
 
+LinkedList.prototype.empty = function() {
+  return this.head === null;
+}
+
 LinkedList.prototype.forEach = function(cb) {
   let currNode = this.head;
   let index = 1;

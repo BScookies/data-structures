@@ -148,6 +148,19 @@ describe('LinkedList', function() {
     expect(ll.size()).to.equal(2);
   });
 
+  it('Should return true if empty', function() {
+    expect(ll.empty()).to.equal(true);
+    ll.head = {
+      value: 4,
+      next: {
+        value: 5,
+        next: null
+      }
+    }
+
+    expect(ll.empty()).to.equal(false);
+  });
+
   it('Should invoke callback on each node', function() {
     let result = [];
     ll.head = {
