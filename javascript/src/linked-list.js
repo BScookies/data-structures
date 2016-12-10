@@ -53,7 +53,6 @@ LinkedList.prototype.addToFront = function(value) {
 LinkedList.prototype.insert = function(index, value) {
   const newNode = new Node(value);
   let currentNode = this.head;
-  let i = 1;
 
   if(index === 1) {
     return this.addToFront(value);
@@ -63,20 +62,15 @@ LinkedList.prototype.insert = function(index, value) {
     return this.add(value);
   }
 
-  while(currentNode) {
+  this.forEach((val, i, node) => {
     if(i + 1 === index) {
       newNode.next = currentNode.next;
       currentNode.next = newNode;
       this.length++;
-
-      return newNode;
     }
+  });
 
-    i++
-    currentNode = currentNode.next;
-  }
-
-  return null;
+  return newNode;
 }
 
 LinkedList.prototype.remove = function() {
