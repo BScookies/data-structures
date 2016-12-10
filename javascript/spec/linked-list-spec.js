@@ -89,6 +89,30 @@ describe('LinkedList', function() {
     ll.addToFront(10);
     expect(ll.head.value).to.equal(10);
     expect(ll.tail.value).to.equal(4);
+  });
+
+  it('Should insert nodes at a given index', function() {
+    const expectedTail = {
+      value: 3,
+      next: null
+    };
+
+    const expectedHead = {
+      value: 10,
+      next: {
+        value: 1,
+        next: {
+          value: 4,
+          next: expectedTail
+        }
+      }
+    }
+
+    ll.insert(1, 1);
+    ll.insert(2, 4);
+    ll.insert(3, 3);
+    ll.insert(1, 10);
+    expect(JSON.stringify(ll)).to.equal(JSON.stringify({ head: expectedHead, tail: expectedTail, length: 4}));
   })
 
   it('Should remove nodes', function() {

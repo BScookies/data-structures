@@ -46,7 +46,37 @@ LinkedList.prototype.addToFront = function(value) {
     this.tail = newNode;
   }
 
+  this.length++;
   this.head = newNode;
+}
+
+LinkedList.prototype.insert = function(index, value) {
+  const newNode = new Node(value);
+  let currentNode = this.head;
+  let i = 1;
+
+  if(index === 1) {
+    return this.addToFront(value);
+  }
+
+  if(index === this.size() + 1 || !this.size()) {
+    return this.add(value);
+  }
+
+  while(currentNode) {
+    if(i + 1 === index) {
+      newNode.next = currentNode.next;
+      currentNode.next = newNode;
+      this.length++;
+
+      return newNode;
+    }
+
+    i++
+    currentNode = currentNode.next;
+  }
+
+  return null;
 }
 
 LinkedList.prototype.remove = function() {
