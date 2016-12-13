@@ -25,4 +25,25 @@ describe('QueueArray', function() {
     expect(queue.dequeue()).to.equal(4);
     expect(queue.dequeue()).to.equal(13);
   });
+
+  it('Should return correct size and report if empty', function() {
+    expect(queue.size()).to.equal(0);
+    expect(queue.isEmpty()).to.equal(true);
+
+    queue.enqueue('some stuff');
+    queue.enqueue('some more stuff');
+
+    expect(queue.size()).to.equal(2);
+    expect(queue.isEmpty()).to.equal(false);
+
+    queue.dequeue();
+
+    expect(queue.size()).to.equal(1);
+    expect(queue.isEmpty()).to.equal(false);
+
+    queue.dequeue();
+
+    expect(queue.size()).to.equal(0);
+    expect(queue.isEmpty()).to.equal(true);
+  })
 })
