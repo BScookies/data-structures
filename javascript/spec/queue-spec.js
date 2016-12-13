@@ -2,7 +2,7 @@
 const expect = require('chai').expect;
 const Queue = require('../src/queue.js');
 
-['QueueArray', 'QueueLinkedList'].forEach(className => {
+['QueueArray', 'QueueFixedArray', 'QueueLinkedList'].forEach(className => {
   describe(className, function() {
     let queue;
     beforeEach(function() {
