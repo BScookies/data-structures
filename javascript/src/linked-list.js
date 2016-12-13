@@ -82,7 +82,7 @@ LinkedList.prototype.remove = function() {
 
   this.length--;
 
-  return oldHead;
+  return oldHead.value;
 }
 
 LinkedList.prototype.removeBack = function() {
