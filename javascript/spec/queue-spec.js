@@ -13,10 +13,6 @@ const Queue = require('../src/queue.js');
       expect(queue).to.not.be.undefined;
     });
 
-    it('Should have storage as an array', function() {
-      expect(Array.isArray(queue.storage)).to.equal(true);
-    });
-
     it('Should add items to the end and remove from the front', function() {
       queue.enqueue(4);
       queue.enqueue(13);

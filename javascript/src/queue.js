@@ -1,3 +1,6 @@
+'use strict';
+const LinkedList = require('./linked-list.js').LinkedList;
+
 const QueueArray = function() {
   this.storage = [];
 }
@@ -18,4 +21,17 @@ QueueArray.prototype.isEmpty = function() {
   return this.size() === 0;
 }
 
-module.exports = { QueueArray };
+const QueueLinkedList = function() {
+  this.storage = new LinkedList;
+}
+
+QueueLinkedList.prototype.enqueue = function(val) {
+  this.storage.add(val);
+  return this.storage.size();
+}
+
+QueueLinkedList.prototype.dequeue = function(val) {
+  return this.storage.remove();
+}
+
+module.exports = { QueueArray, QueueLinkedList };
