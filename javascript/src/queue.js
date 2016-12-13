@@ -29,6 +29,30 @@ const QueueFixedArray = function(maxSize) {
   this.length = 0;
 }
 
+QueueFixedArray.prototype.enqueue = function(val) {
+  if(this.write === this.maxSize) {
+    this.write = 0;
+  }
+
+  if(this.length !== this.maxSize) {
+    this.length++;
+  }
+
+  return this.storage[this.write++] = val;
+}
+
+QueueFixedArray.prototype.dequeue = function() {
+  if(this.read === this.maxSize) {
+    this.read = 0;
+  }
+
+  if(this.length > 0) {
+    this.length--;
+  }
+
+  return this.storage[this.read++];
+}
+
 const QueueLinkedList = function() {
   this.storage = new LinkedList;
 }
