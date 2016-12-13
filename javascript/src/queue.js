@@ -53,6 +53,14 @@ QueueFixedArray.prototype.dequeue = function() {
   return this.storage[this.read++];
 }
 
+QueueFixedArray.prototype.size = function() {
+  return this.length;
+}
+
+QueueFixedArray.prototype.isEmpty = function() {
+  return this.length === 0;
+}
+
 const QueueLinkedList = function() {
   this.storage = new LinkedList;
 }
