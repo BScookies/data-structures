@@ -34,4 +34,12 @@ QueueLinkedList.prototype.dequeue = function(val) {
   return this.storage.remove();
 }
 
+QueueLinkedList.prototype.size = function(val) {
+  return this.storage.size();
+}
+
+QueueLinkedList.prototype.isEmpty = function() {
+  return this.size() === 0;
+}
+
 module.exports = { QueueArray, QueueLinkedList };
