@@ -45,5 +45,12 @@ describe('Tree', function() {
 
 		tree.traverseDFPre(node => result.push(node.value));
 		expect(result).to.eql([1,2,4,5,3,6,7]);
-	})
+	});
+
+	it('Should traverse depth-first post-order', function() {
+		const result = [];
+
+		tree.traverseDFPost(node => result.push(node.value));
+		expect(result).to.eql([4,5,2,6,7,3,1]);
+	});
 })
