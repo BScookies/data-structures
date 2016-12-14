@@ -53,4 +53,11 @@ describe('Tree', function() {
 		tree.traverseDFPost(node => result.push(node.value));
 		expect(result).to.eql([4,5,2,6,7,3,1]);
 	});
+
+	it('Should traverse breadth-first', function() {
+		const result = [];
+
+		tree.traverseBF(node => result.push(node.value));
+		expect(result).to.eql([1,2,3,4,5,6,7]);
+	});
 })
