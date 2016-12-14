@@ -1,4 +1,6 @@
 'use strict';
+const Queue = require('./queue.js').QueueLinkedList;
+
 class Node {
 	constructor(value, parent) {
 		this.value = value;
@@ -32,6 +34,20 @@ class Tree {
 		}
 
 		callback(node);
+	}
+
+	traverseBF(callback) {
+		const queue = new Queue;
+		queue.enqueue(this._root);
+
+		while(!queue.isEmpty()) {
+			let currentNode = queue.dequeue();
+			callback(currentNode);
+
+			for(let child of currentNode.children) {
+				queue.enqueue(child);
+			}
+		}
 	}
 };
 
