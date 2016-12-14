@@ -27,10 +27,23 @@ describe('Tree', function() {
 	let tree;
 
 	beforeEach(function() {
-		tree = new Tree(4);
+		tree = new Tree(1);
+		const l = tree._root.addChild(2);
+		const r = tree._root.addChild(3);
+		l.addChild(4);
+		l.addChild(5);
+		r.addChild(6);
+		r.addChild(7);
 	});
 
 	it('Should create a tree', function() {
 		expect(tree).to.not.be.undefined;
+	});
+
+	it('Should traverse depth-first pre-order', function() {
+		const result = [];
+
+		tree.traverseDFPre(node => result.push(node.value));
+		expect(result).to.eql([1,2,4,5,3,6,7]);
 	})
 })
