@@ -5,6 +5,12 @@ class Node {
   		this.parent = parent || null;
   		this.children = [];
   	}
+
+  	addChild(value) {
+  		const child = new Node(value, this);
+  		this.children.push(child);
+  		return child;
+  	}
 };
 
 class Tree {
@@ -13,4 +19,4 @@ class Tree {
 	}
 };
 
-module.exports = { Tree };
+module.exports = { Node, Tree };
