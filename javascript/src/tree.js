@@ -25,6 +25,14 @@ class Tree {
 			this.traverseDFPre(callback, child);
 		}
 	}
+
+	traverseDFPost(callback, node = this._root) {
+		for(let child of node.children) {
+			this.traverseDFPost(callback, child);
+		}
+
+		callback(node);
+	}
 };
 
 module.exports = { Node, Tree };
