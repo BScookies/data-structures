@@ -24,4 +24,14 @@ describe('Binary Search Tree', function() {
 		expect(tree).to.not.be.undefined;
 		expect(tree.root).to.not.be.null;
 	});
+
+	it('Should insert a node in order', function() {
+		const left = tree.insert(0);
+		const right = tree.insert(2);
+		const rightRight = tree.insert(4);
+
+		expect(tree.root.left).to.equal(left);
+		expect(tree.root.right).to.equal(right);
+		expect(tree.root.right.right).to.equal(rightRight);
+	});
 })
