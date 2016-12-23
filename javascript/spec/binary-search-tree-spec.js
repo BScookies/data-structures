@@ -34,4 +34,15 @@ describe('Binary Search Tree', function() {
 		expect(tree.root.right).to.equal(right);
 		expect(tree.root.right.right).to.equal(rightRight);
 	});
+
+	it('Should return a node when value is searched for', function() {
+		const node = tree.insert(5);
+		const node2 = tree.insert(3);
+		const node3 = tree.insert(6);
+
+		expect(tree.search(5)).to.equal(node);
+		expect(tree.search(3)).to.equal(node2);
+		expect(tree.search(6)).to.equal(node3);
+		expect(tree.search(14)).to.equal(null);
+	});
 })

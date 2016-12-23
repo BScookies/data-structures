@@ -16,7 +16,7 @@ class BinarySearchTree {
 
 	insert(value, currentNode = this.root) {
 		if(!this.root) {
-			return this.root = new Node(value);
+			this.root = new Node(value);
 		}
 
 		if(value < currentNode.value) {
@@ -34,6 +34,22 @@ class BinarySearchTree {
 				return this.insert(value, currentNode.right);
 			}
 		}
+	}
+
+	search(key, currentNode = this.root) {
+		if(!currentNode) {
+			return null;
+		}
+
+		if(key < currentNode.value) {
+			return this.search(key, currentNode.left);
+		}
+
+		if(key > currentNode.value) {
+			return this.search(key, currentNode.right);
+		}
+
+		return currentNode;
 	}
 };
 
