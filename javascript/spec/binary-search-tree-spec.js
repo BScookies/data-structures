@@ -45,4 +45,31 @@ describe('Binary Search Tree', function() {
 		expect(tree.search(6)).to.equal(node3);
 		expect(tree.search(14)).to.equal(null);
 	});
+
+	it('Should delete a leaf', function() {
+		tree.insert(3);
+		tree.delete(3);
+
+		expect(tree.root).to.eql({ value: 1, parent: null, left: null, right: null });
+
+		tree.delete(1)
+		expect(tree.root).to.equal(null)
+	});
+
+	it('Should delete a node with left and right', function() {
+		const r = tree.insert(3);
+		const l = tree.insert(0);
+
+		tree.delete(1);
+		expect(tree.root).to.eql({ value: 3, parent: null, left: l, right: null });
+	});
+
+	it('Should delete a node with a single left or right', function() {
+		const l = tree.insert(-15);
+		const r = tree.insert(15);
+		const rr = tree.insert(17);
+		tree.delete(15);
+		
+		expect(tree.root).to.eql({ value: 1, parent: null, left: l, right: rr });
+	})
 })
