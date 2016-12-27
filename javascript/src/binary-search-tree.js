@@ -12,15 +12,22 @@ class Node {
 class BinarySearchTree {
 	constructor(value) {
 		this.root = value ? new Node(value) : null;
+		this.count = value ? 1 : 0;
+	}
+
+	getNodeCount() {
+		return this.count;
 	}
 
 	insert(value, currentNode = this.root) {
 		if(!this.root) {
-			this.root = new Node(value);
+			this.count++;
+			return this.root = new Node(value);
 		}
 
 		if(value < currentNode.value) {
 			if(!currentNode.left) {
+				this.count++;
 				return currentNode.left = new Node(value, currentNode);
 			} else {
 				return insert(value, currentNode.left);
@@ -29,6 +36,7 @@ class BinarySearchTree {
 
 		if(value > currentNode.value) {
 			if(!currentNode.right) {
+				this.count++;
 				return currentNode.right = new Node(value, currentNode);
 			} else {
 				return this.insert(value, currentNode.right);
@@ -55,7 +63,7 @@ class BinarySearchTree {
 	delete(key) {
 		// get a reference to the node to be deleted, its parent, and the direction it hangs off its parent
 		const deletedNode = this.search(key);
-		const parent = deletedNode.parent;	
+		const parent = deletedNode.parent;
 		const direction = parent && parent.left === deletedNode ? 'left' : 'right';
 
 		// if node is a leaf..

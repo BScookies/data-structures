@@ -69,7 +69,15 @@ describe('Binary Search Tree', function() {
 		const r = tree.insert(15);
 		const rr = tree.insert(17);
 		tree.delete(15);
-		
+
 		expect(tree.root).to.eql({ value: 1, parent: null, left: l, right: rr });
-	})
+	});
+
+	it('Should return a count of nodes', function() {
+		tree.insert(5);
+		tree.insert(20);
+		tree.insert(8);
+
+		expect(tree.getNodeCount()).to.equal(4);
+	});
 })
